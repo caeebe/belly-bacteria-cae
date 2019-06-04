@@ -1,1 +1,1 @@
-web: gunicorn belly-bacteria-cae.app:app
+web: gunicorn app:app
