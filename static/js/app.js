@@ -105,7 +105,10 @@ function buildCharts(sample) {
             values: top_response.map(data => data.sample_value),
             labels: top_response.map(data => data.otu_id),
             hovertext: top_response.map(data => data.otu_label),
-            type: 'pie'
+            type: 'pie',
+            marker: {
+                colors: color
+            }
         }];
 
         var layout2 = {
