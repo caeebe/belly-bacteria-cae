@@ -95,6 +95,8 @@ function buildCharts(sample) {
         console.log(sort_response);
         var top_response = sort_response.slice(0,10);
         // make the color scheme for the top 10 match the colorscheme of the scatter plot
+        // used this link to adjust the color scheme: 
+        // https://github.com/d3/d3-scale-chromatic
         var color = []
         top_response.forEach(function(data,index) {
             var otu_id = data.otu_id;
