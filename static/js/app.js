@@ -88,10 +88,18 @@ function buildCharts(sample) {
                                   otu_label: otu_labels[index]
                                   };
         });
+              // for the color scheme find the max id
+        var max_otu_id = d3.max(sort_response, function(d) { return d.otu_id; })
         sort_response.sort(function(a, b){
             return b.sample_value - a.sample_value});
         console.log(sort_response);
         var top_response = sort_response.slice(0,10);
+        // make the color scheme for the top 10 match the colorscheme of the scatter plot
+        var color = []
+        top_response.forEach(function(data,index) {
+            var otu_id = data.otu_id;
+            color[index] = d3.interpolateViridis(otu_id/max_otu_id);
+        });
         
         var data2 = [{
             values: top_response.map(data => data.sample_value),
